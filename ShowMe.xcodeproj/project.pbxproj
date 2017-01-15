@@ -11,6 +11,7 @@
 		0CED5E0B1E2BE228003595B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CED5E0A1E2BE228003595B9 /* Assets.xcassets */; };
 		0CED5E0E1E2BE228003595B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CED5E0C1E2BE228003595B9 /* LaunchScreen.storyboard */; };
 		0CED5E161E2BE374003595B9 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED5E151E2BE374003595B9 /* HomeController.swift */; };
+		0CED5E181E2BE9F2003595B9 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED5E171E2BE9F2003595B9 /* CollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		0CED5E0D1E2BE228003595B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0CED5E0F1E2BE228003595B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CED5E151E2BE374003595B9 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		0CED5E171E2BE9F2003595B9 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +54,9 @@
 		0CED5E021E2BE228003595B9 /* ShowMe */ = {
 			isa = PBXGroup;
 			children = (
-				0CED5E151E2BE374003595B9 /* HomeController.swift */,
 				0CED5E031E2BE228003595B9 /* AppDelegate.swift */,
+				0CED5E151E2BE374003595B9 /* HomeController.swift */,
+				0CED5E171E2BE9F2003595B9 /* CollectionViewCell.swift */,
 				0CED5E0A1E2BE228003595B9 /* Assets.xcassets */,
 				0CED5E0C1E2BE228003595B9 /* LaunchScreen.storyboard */,
 				0CED5E0F1E2BE228003595B9 /* Info.plist */,
@@ -135,6 +138,7 @@
 			files = (
 				0CED5E041E2BE228003595B9 /* AppDelegate.swift in Sources */,
 				0CED5E161E2BE374003595B9 /* HomeController.swift in Sources */,
+				0CED5E181E2BE9F2003595B9 /* CollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

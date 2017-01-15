@@ -10,6 +10,10 @@ import UIKit
 
 class HomeController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     
+    let cellID = "cellID"
+   
+    var loginImages = [UIImage(named: "reporter1"), UIImage(named: "Photo"), UIImage(named: "location"), UIImage(named: "content"), UIImage(named: "share")]
+    
     
     
     override func viewDidLoad() {
@@ -30,26 +34,46 @@ class HomeController: UIViewController, UICollectionViewDataSource, UICollection
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
         let collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
-        collectionView.backgroundColor = .yellow
+        collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: cellID)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.backgroundColor = .blue
+        collectionView.isPagingEnabled = true
         
         view.addSubview(collectionView)
         
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        <#code#>
+        
+        return loginImages.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! CollectionViewCell
+        cell.backgroundColor = .darkText
+        
+        
+        cell.awakeFromNib()
+        
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        <#code#>
+        let newCell = cell as! CollectionViewCell
+        
+        newCell.cellImages.image = loginImages[indexPath.row]
+        
+        
     }
+
+    
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        <#code#>
+        return CGSize(width: view.frame.width, height: view.frame.height)
     }
     
     
