@@ -12,7 +12,8 @@ class HomeController: UIViewController, UICollectionViewDataSource, UICollection
     
     let cellID = "cellID"
    
-    var loginImages = [UIImage(named: "reporter1"), UIImage(named: "Photo"), UIImage(named: "location"), UIImage(named: "content"), UIImage(named: "share")]
+    var loginImages = [UIImage(named: "reporter1"), UIImage(named: "Photo"), UIImage(named: "location")]
+    var howToUseDetails = ["Ever dreamn't of becoming a reporter? Here is your chance. You not only can be a reporter but view current news, get emergency alerts and much more", "Simply take a photo or video of something you deemed News worthy...make sure the quality is good", "Select your location. This helps you and othere users see only news in their area/region."]
     
     
     
@@ -40,7 +41,7 @@ class HomeController: UIViewController, UICollectionViewDataSource, UICollection
         collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: cellID)
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.backgroundColor = .blue
+        collectionView.backgroundColor = .darkText
         collectionView.isPagingEnabled = true
         
         view.addSubview(collectionView)
@@ -62,21 +63,19 @@ class HomeController: UIViewController, UICollectionViewDataSource, UICollection
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        let newCell = cell as! CollectionViewCell
-        
-        newCell.cellImages.image = loginImages[indexPath.row]
-        
-        
-    }
-
-    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: view.frame.height)
     }
     
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let newCell = cell as! CollectionViewCell
+        
+        newCell.cellImages.image = loginImages[indexPath.row]
+        newCell.someText.text = howToUseDetails[indexPath.row]
+        
+    }
 }
 
 
