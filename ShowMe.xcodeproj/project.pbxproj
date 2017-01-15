@@ -13,7 +13,7 @@
 		0CED5E161E2BE374003595B9 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED5E151E2BE374003595B9 /* HomeController.swift */; };
 		0CED5E181E2BE9F2003595B9 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED5E171E2BE9F2003595B9 /* CollectionViewCell.swift */; };
 		0CED5E1D1E2C0EC6003595B9 /* pageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED5E1C1E2C0EC6003595B9 /* pageController.swift */; };
-		0CED5E1F1E2C0F36003595B9 /* SkipButtonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED5E1E1E2C0F36003595B9 /* SkipButtonController.swift */; };
+		0CED5E211E2C22B1003595B9 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED5E201E2C22B1003595B9 /* NewsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		0CED5E151E2BE374003595B9 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		0CED5E171E2BE9F2003595B9 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		0CED5E1C1E2C0EC6003595B9 /* pageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pageController.swift; sourceTree = "<group>"; };
-		0CED5E1E1E2C0F36003595B9 /* SkipButtonController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkipButtonController.swift; sourceTree = "<group>"; };
+		0CED5E201E2C22B1003595B9 /* NewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				0CED5E151E2BE374003595B9 /* HomeController.swift */,
+				0CED5E201E2C22B1003595B9 /* NewsViewController.swift */,
 			);
 			name = Controls;
 			sourceTree = "<group>";
@@ -89,7 +90,6 @@
 		0CED5E1B1E2C0EA2003595B9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				0CED5E1E1E2C0F36003595B9 /* SkipButtonController.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -166,9 +166,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CED5E1F1E2C0F36003595B9 /* SkipButtonController.swift in Sources */,
 				0CED5E1D1E2C0EC6003595B9 /* pageController.swift in Sources */,
 				0CED5E041E2BE228003595B9 /* AppDelegate.swift in Sources */,
+				0CED5E211E2C22B1003595B9 /* NewsViewController.swift in Sources */,
 				0CED5E161E2BE374003595B9 /* HomeController.swift in Sources */,
 				0CED5E181E2BE9F2003595B9 /* CollectionViewCell.swift in Sources */,
 			);
@@ -324,6 +324,7 @@
 				0CED5E141E2BE228003595B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

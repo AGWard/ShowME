@@ -11,11 +11,26 @@ import UIKit
 class HomeController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     
     
-    let cellID = "cellID"
+    var cellID = "cellID"
    
     var loginImages = [UIImage(named: "reporter3"), UIImage(named: "Photo"), UIImage(named: "location")]
     var howToUseDetails = ["Ever dreamn't of becoming a reporter? Here is your chance. You not only can be a reporter but view current news, get emergency alerts and much more", "Simply take a photo or video of something you deemed News worthy...make sure the quality is good", "Select your location. This helps you and othere users see only news in their area/region."]
 
+    lazy var skipBut: UIButton = {
+        
+        let button = UIButton(frame: CGRect(x: 12, y: 64, width: 36, height: 40))
+        button.setTitleColor(.white, for: .normal)
+        button.setTitle("Skip", for: .normal)
+        button.isOpaque = false
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        
+        button.addTarget(self, action: #selector(skipAction), for: .touchUpInside)
+        
+        
+        
+        return button
+        
+    }()
 
     
     
@@ -94,6 +109,22 @@ class HomeController: UIViewController, UICollectionViewDataSource, UICollection
         newCell.someText.text = howToUseDetails[indexPath.row]
         
     }
+    
+    
+
+    
+    func skipAction(_ sender: UIButton!) {
+        
+        
+        let newsVC = NewsViewController()
+        newsVC.modalTransitionStyle = .crossDissolve
+        let navController = UINavigationController(rootViewController: newsVC)
+        
+        present(navController, animated: true, completion: nil)
+    }
+    
+    
+    
 }
 
 
