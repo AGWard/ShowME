@@ -19,7 +19,7 @@ class CollectionViewCell: UICollectionViewCell {
         
         cellImages.isOpaque = true
         cellImages.clipsToBounds = true
-        cellImages.contentMode = .scaleAspectFit
+        cellImages.contentMode = .scaleAspectFill
         
         someText = UILabel(frame: contentView.frame)
         someText.clipsToBounds = true

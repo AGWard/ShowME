@@ -10,23 +10,36 @@ import UIKit
 
 class HomeController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     
+    
     let cellID = "cellID"
    
-    var loginImages = [UIImage(named: "reporter1"), UIImage(named: "Photo"), UIImage(named: "location")]
+    var loginImages = [UIImage(named: "reporter3"), UIImage(named: "Photo"), UIImage(named: "location")]
     var howToUseDetails = ["Ever dreamn't of becoming a reporter? Here is your chance. You not only can be a reporter but view current news, get emergency alerts and much more", "Simply take a photo or video of something you deemed News worthy...make sure the quality is good", "Select your location. This helps you and othere users see only news in their area/region."]
-    
+
+
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+
+      
         addCollectionView()
+        view.addSubview(addPageController)
+        view.addSubview(skipBut)
         
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let pageNumber = targetContentOffset.pointee.x / view.frame.width
+        
+        
+        addPageController.currentPage = Int(pageNumber)
+        
+        print(pageNumber)
     }
     
     
@@ -47,6 +60,9 @@ class HomeController: UIViewController, UICollectionViewDataSource, UICollection
         view.addSubview(collectionView)
         
     }
+    
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
