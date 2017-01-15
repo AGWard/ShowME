@@ -55,10 +55,12 @@ class HomeController: UIViewController, UICollectionViewDataSource, UICollection
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! CollectionViewCell
+        
+        cell.awakeFromNib()
         cell.backgroundColor = .darkText
         
         
-        cell.awakeFromNib()
+        
         
         return cell
     }

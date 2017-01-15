@@ -25,6 +25,7 @@ class CollectionViewCell: UICollectionViewCell {
         someText.clipsToBounds = true
         someText.textColor = .white
         someText.numberOfLines = 0
+        someText.textAlignment = .left
         
         
         
