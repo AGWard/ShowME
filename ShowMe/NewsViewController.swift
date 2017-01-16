@@ -18,6 +18,8 @@ class NewsViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     var topNews = ["Curry drives as he becomes # layup player", "Lebron says Warriors are the best", "Kobe on retirement", "Jordon says Hornets are on track", "Carmello to sit out next game", "Harden says Russ is MVP", "4th Qtr flop not real", "CP says clippers are refreshed", "Westbrook on averaging Triple Doubles", "Rumours of trade for CJ", "Kyrie says best rivalry against GS", "Rose - 'family first'", "AI talks about current 76ers", "Timmy on coaching and Popavich", "Garnett and his tight pants"]
     
+    var profilePic = [UIImage(named: "rowley"), UIImage(named: "oldMan"), UIImage(named: "female"), UIImage(named: "rowley"), UIImage(named: "oldMan"), UIImage(named: "female"), UIImage(named: "rowley"), UIImage(named: "oldMan"), UIImage(named: "female"), UIImage(named: "rowley"), UIImage(named: "oldMan"), UIImage(named: "female"), UIImage(named: "rowley"), UIImage(named: "oldMan"), UIImage(named: "oldMan")]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,6 +65,8 @@ class NewsViewController: UIViewController, UICollectionViewDataSource, UICollec
         cell.profileImage.image = userImages[indexPath.row]
         cell.personName.text = userNames[indexPath.row]
         cell.notes.text = topNews[indexPath.row]
+        cell.userPic.image = profilePic[indexPath.row]
+        
         
         cell.awakeFromNib()
         
