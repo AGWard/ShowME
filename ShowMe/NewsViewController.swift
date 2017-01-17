@@ -11,12 +11,14 @@ import UIKit
 class NewsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     let userCellID = "userCellID"
+    let headerID = "HeaderID"
+    let footerID = "footerID"
     
 
     var userImages = [UIImage(named: "1"), UIImage(named: "2"), UIImage(named: "3"), UIImage(named: "4"), UIImage(named: "5"), UIImage(named: "6"), UIImage(named: "7"), UIImage(named: "8"), UIImage(named: "9"), UIImage(named: "10"), UIImage(named: "11"), UIImage(named: "12"), UIImage(named: "13"), UIImage(named: "14"), UIImage(named: "15")]
     var userNames = ["Person username and details goes here", "Person username and details goes here", "Person username and details goes here", "Person username and details goes here", "Person username and details goes here", "Person username and details goes here", "Person username and details goes here", "Person username and details goes here", "Person username and details goes here", "Person username and details goes here", "Person username and details goes here", "Person username and details goes here", "Person username and details goes here", "Person username and details goes here", "Person username and details goes here"]
     
-    var topNews = ["Curry drives as he becomes # layup player", "Lebron says Warriors are the best", "Kobe on retirement", "Jordon says Hornets are on track", "Carmello to sit out next game", "Harden says Russ is MVP", "4th Qtr flop not real", "CP says clippers are refreshed", "Westbrook on averaging Triple Doubles", "Rumours of trade for CJ", "Kyrie says best rivalry against GS", "Rose - 'family first'", "AI talks about current 76ers", "Timmy on coaching and Popavich", "Garnett and his tight pants"]
+    var topNews = ["Curry drives as he becomes #1 layup player", "Lebron says Warriors are the best", "Kobe on retirement", "Jordon says Hornets are on track", "Carmello to sit out next game", "Harden says Russ is MVP", "4th Qtr flop not real", "CP says clippers are refreshed", "Westbrook on averaging Triple Doubles", "Rumours of trade for CJ", "Kyrie says best rivalry against GS", "Rose - 'family first'", "AI talks about current 76ers", "Timmy on coaching and Popavich", "Garnett and his tight pants"]
     
     var profilePic = [UIImage(named: "rowley"), UIImage(named: "oldMan"), UIImage(named: "female"), UIImage(named: "rowley"), UIImage(named: "oldMan"), UIImage(named: "female"), UIImage(named: "rowley"), UIImage(named: "oldMan"), UIImage(named: "female"), UIImage(named: "rowley"), UIImage(named: "oldMan"), UIImage(named: "female"), UIImage(named: "rowley"), UIImage(named: "oldMan"), UIImage(named: "oldMan")]
     
@@ -25,6 +27,9 @@ class NewsViewController: UIViewController, UICollectionViewDataSource, UICollec
         
     view.backgroundColor = .blue
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(goBack))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addMessage))
+        
+        
         addCollectionViewMain()
     
 
@@ -40,15 +45,24 @@ class NewsViewController: UIViewController, UICollectionViewDataSource, UICollec
         dismiss(animated: true, completion: nil)
     }
     
+    func addMessage() {
+        
+        print("anthony")
+    }
+    
     func addCollectionViewMain() {
         
         let layout = UICollectionViewFlowLayout()
+        layout.sectionFootersPinToVisibleBounds = true
       
         let collectionVC = UICollectionView(frame: view.frame, collectionViewLayout: layout)
         collectionVC.register(UserViewCell.self, forCellWithReuseIdentifier: userCellID)
         collectionVC.delegate = self
         collectionVC.dataSource = self
-        collectionVC.backgroundColor = .darkText
+        collectionVC.backgroundColor = .gray
+        
+        collectionVC.register(HeaderCollectionViewCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerID)
+        collectionVC.register(FooterCollectionViewCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: footerID)
         
         
         view.addSubview(collectionVC)
@@ -61,7 +75,7 @@ class NewsViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: userCellID, for: indexPath) as! UserViewCell
-        cell.backgroundColor = .darkText
+        cell.backgroundColor = .white
         cell.profileImage.image = userImages[indexPath.row]
         cell.personName.text = userNames[indexPath.row]
         cell.notes.text = topNews[indexPath.row]
@@ -76,5 +90,36 @@ class NewsViewController: UIViewController, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: 500)
     }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        if kind == UICollectionElementKindSectionHeader {
+        
+        let headerCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerID, for: indexPath) as! HeaderCollectionViewCell
+        
+        headerCell.backgroundColor = .lightGray
+        
+        headerCell.awakeFromNib()
+        
+        return headerCell
+        }
+        
+        let footerCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerID, for: indexPath) as! FooterCollectionViewCell
+        
+        footerCell.backgroundColor = .gray
+        footerCell.awakeFromNib()
+        
+        return footerCell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: view.frame.width, height: 50)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        return CGSize(width: view.frame.width, height: 50)
+    }
+    
     
 }
