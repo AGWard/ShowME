@@ -18,8 +18,9 @@ class HomeController: UIViewController, UICollectionViewDataSource, UICollection
 
     lazy var skipBut: UIButton = {
         
-        let button = UIButton(frame: CGRect(x: 12, y: 64, width: 36, height: 40))
-        button.setTitleColor(.white, for: .normal)
+        
+        let button = UIButton(frame: CGRect(x: 300, y: 500, width: 50, height: 40))
+        button.setTitleColor(.lightGray, for: .normal)
         button.setTitle("Skip", for: .normal)
         button.isOpaque = false
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
@@ -36,11 +37,12 @@ class HomeController: UIViewController, UICollectionViewDataSource, UICollection
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        skipBut.isHidden = true
       
         addCollectionView()
         view.addSubview(addPageController)
         view.addSubview(skipBut)
+        
         
     }
     
@@ -48,11 +50,19 @@ class HomeController: UIViewController, UICollectionViewDataSource, UICollection
         super.didReceiveMemoryWarning()
     }
     
+
+    
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let pageNumber = targetContentOffset.pointee.x / view.frame.width
         
         
         addPageController.currentPage = Int(pageNumber)
+        
+        if addPageController.currentPage == 2 {
+            skipBut.isHidden = false
+        } else {
+            skipBut.isHidden = true
+        }
         
         print(pageNumber)
     }

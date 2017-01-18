@@ -14,18 +14,19 @@ class UserViewCell: UICollectionViewCell {
     let personName = UILabel()
     let socialBar = UIImageView()
     let notes = UILabel()
-    let userPic = UIImageView()
+    let userPic = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
     
     
     
     override func awakeFromNib() {
         
-        profileImage.clipsToBounds = true
-        profileImage.contentMode = .scaleAspectFill
         
+        profileImage.contentMode = .scaleAspectFill
+        profileImage.clipsToBounds = true
     
-        personName.textColor = .red
+        personName.textColor = .lightGray
         personName.font = UIFont.systemFont(ofSize: 15)
+        
         
         socialBar.image = UIImage(named: "smbar")
         socialBar.backgroundColor = .white
@@ -34,13 +35,15 @@ class UserViewCell: UICollectionViewCell {
         
         notes.textColor = .darkText
         
-        notes.font = UIFont.boldSystemFont(ofSize: 16)
+        notes.font = UIFont.boldSystemFont(ofSize: 14)
         
         
         
-
+        userPic.layer.borderWidth = 1
+        userPic.layer.borderColor = UIColor.white.cgColor
+        userPic.layer.cornerRadius = userPic.frame.height/2
         userPic.backgroundColor = .white
-        userPic.contentMode = .scaleAspectFit
+        userPic.contentMode = .scaleAspectFill
         userPic.clipsToBounds = true
         
        
@@ -62,15 +65,15 @@ class UserViewCell: UICollectionViewCell {
        userPic.translatesAutoresizingMaskIntoConstraints = false
         
         
-        NSLayoutConstraint.activate([profileImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 50), profileImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -100), profileImage.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 0), profileImage.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 0)])
+        NSLayoutConstraint.activate([profileImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 80), profileImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -70), profileImage.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 0), profileImage.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 0)])
         
-        NSLayoutConstraint.activate([personName.leftAnchor.constraint(equalTo: userPic.rightAnchor, constant: 8), personName.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 0), personName.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0), personName.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: 0)])
+        NSLayoutConstraint.activate([personName.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 8), personName.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 0), personName.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0), personName.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: 0)])
         
-        NSLayoutConstraint.activate([socialBar.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: 0), socialBar.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 50), socialBar.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -50), socialBar.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -80)])
+        NSLayoutConstraint.activate([socialBar.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: 0), socialBar.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 50), socialBar.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -50), socialBar.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -50)])
         
-        NSLayoutConstraint.activate([notes.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20), notes.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 0), notes.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 0), notes.bottomAnchor.constraint(equalTo: profileImage.topAnchor, constant: 0)])
+        NSLayoutConstraint.activate([notes.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20), notes.leftAnchor.constraint(equalTo: userPic.rightAnchor, constant: 8), notes.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 0), notes.bottomAnchor.constraint(equalTo: profileImage.topAnchor, constant: 0)])
         
-        NSLayoutConstraint.activate([userPic.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: 17), userPic.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 12), userPic.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -27), userPic.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -312)])
+        NSLayoutConstraint.activate([userPic.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20), userPic.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 12), userPic.bottomAnchor.constraint(equalTo: profileImage.topAnchor, constant: -10), userPic.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -312)])
         
     }
     

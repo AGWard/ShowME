@@ -59,7 +59,7 @@ class NewsViewController: UIViewController, UICollectionViewDataSource, UICollec
         collectionVC.register(UserViewCell.self, forCellWithReuseIdentifier: userCellID)
         collectionVC.delegate = self
         collectionVC.dataSource = self
-        collectionVC.backgroundColor = .gray
+        collectionVC.backgroundColor = .white
         
         collectionVC.register(HeaderCollectionViewCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerID)
         collectionVC.register(FooterCollectionViewCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: footerID)
