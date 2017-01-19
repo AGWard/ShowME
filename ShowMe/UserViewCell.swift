@@ -15,6 +15,7 @@ class UserViewCell: UICollectionViewCell {
     let socialBar = UIImageView()
     let notes = UILabel()
     let userPic = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+    let line = UILabel(frame: CGRect(x: 0, y: 0, width: 320, height: 0.005))
     
     
     
@@ -34,7 +35,6 @@ class UserViewCell: UICollectionViewCell {
         socialBar.clipsToBounds = false
         
         notes.textColor = .darkText
-        
         notes.font = UIFont.boldSystemFont(ofSize: 14)
         
         
@@ -46,9 +46,13 @@ class UserViewCell: UICollectionViewCell {
         userPic.contentMode = .scaleAspectFill
         userPic.clipsToBounds = true
         
-       
-      
         
+        line.text = "News feed"
+        line.textAlignment = .center
+        line.font = UIFont.boldSystemFont(ofSize: 1)
+        line.backgroundColor = .green
+        line.clipsToBounds = true
+       
         
         
         contentView.addSubview(profileImage)
@@ -56,13 +60,16 @@ class UserViewCell: UICollectionViewCell {
         contentView.addSubview(socialBar)
         contentView.addSubview(notes)
         contentView.addSubview(userPic)
+        contentView.addSubview(line)
         
         
         profileImage.translatesAutoresizingMaskIntoConstraints = false
         personName.translatesAutoresizingMaskIntoConstraints = false
         socialBar.translatesAutoresizingMaskIntoConstraints = false
         notes.translatesAutoresizingMaskIntoConstraints = false
-       userPic.translatesAutoresizingMaskIntoConstraints = false
+        userPic.translatesAutoresizingMaskIntoConstraints = false
+        line.translatesAutoresizingMaskIntoConstraints = false
+        
         
         
         NSLayoutConstraint.activate([profileImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 80), profileImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -70), profileImage.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 0), profileImage.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 0)])
@@ -74,6 +81,8 @@ class UserViewCell: UICollectionViewCell {
         NSLayoutConstraint.activate([notes.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20), notes.leftAnchor.constraint(equalTo: userPic.rightAnchor, constant: 8), notes.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 0), notes.bottomAnchor.constraint(equalTo: profileImage.topAnchor, constant: 0)])
         
         NSLayoutConstraint.activate([userPic.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20), userPic.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 12), userPic.bottomAnchor.constraint(equalTo: profileImage.topAnchor, constant: -10), userPic.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -312)])
+        
+        NSLayoutConstraint.activate([line.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0), line.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 0), line.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 0)])
         
     }
     

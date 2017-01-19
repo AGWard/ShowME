@@ -82,6 +82,7 @@ class NewsViewController: UIViewController, UICollectionViewDataSource, UICollec
         cell.userPic.image = profilePic[indexPath.row]
         
         
+        
         cell.awakeFromNib()
         
         return cell
