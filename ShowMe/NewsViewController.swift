@@ -22,12 +22,16 @@ class NewsViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     var profilePic = [UIImage(named: "rowley"), UIImage(named: "oldMan"), UIImage(named: "female"), UIImage(named: "rowley"), UIImage(named: "oldMan"), UIImage(named: "female"), UIImage(named: "rowley"), UIImage(named: "oldMan"), UIImage(named: "female"), UIImage(named: "rowley"), UIImage(named: "oldMan"), UIImage(named: "female"), UIImage(named: "rowley"), UIImage(named: "oldMan"), UIImage(named: "oldMan")]
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
     view.backgroundColor = .blue
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(goBack))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addMessage))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(addMessage))
         
         
         addCollectionViewMain()
@@ -35,6 +39,9 @@ class NewsViewController: UIViewController, UICollectionViewDataSource, UICollec
 
         // Do any additional setup after loading the view.
     }
+    
+
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -65,6 +72,9 @@ class NewsViewController: UIViewController, UICollectionViewDataSource, UICollec
         collectionVC.register(FooterCollectionViewCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: footerID)
         
         
+        
+        
+        
         view.addSubview(collectionVC)
         
 
@@ -76,10 +86,13 @@ class NewsViewController: UIViewController, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: userCellID, for: indexPath) as! UserViewCell
         cell.backgroundColor = .white
-        cell.profileImage.image = userImages[indexPath.row]
+        
         cell.personName.text = userNames[indexPath.row]
         cell.notes.text = topNews[indexPath.row]
         cell.userPic.image = profilePic[indexPath.row]
+        cell.profileImage2.setImage(userImages[indexPath.row], for: .normal)
+        
+        
         
         
         
